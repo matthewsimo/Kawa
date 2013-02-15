@@ -1,0 +1,93 @@
+<head>
+  <title>Kawa</title>
+</head>
+
+<body>
+  <header id="main-header">
+    {{> header}}
+  </header>
+  <div id="main-content">
+    {{> main}}
+  </div>
+  <footer id="main-footer">
+    {{> footer}}
+  </footer>
+</body>
+
+
+<template name="header">
+  <h1>Matthew Simo</h1>
+
+  <nav>
+    <ul>
+      {{> mainNav }}
+    </ul>
+  </nav>
+</template>
+
+
+<template name="footer">
+  <h3>Matthew Simo</h3>
+  <nav>
+    <ul>
+      {{> mainNav }}
+    </ul>
+</template>
+
+
+<template name="mainNav">
+  <li><a href="/about">About</a></li>
+  <li><a href="/posts">Posts</a></li>
+  <li><a href="/contact">Contact</a></li>
+</template>
+
+
+<template name="main">
+  <h1>Hello World!</h1>
+  {{greeting}}
+  <h3>Press the button!</h3>
+  <input id="counter" type="button" value="Click" />
+  {{#if pressCounter }}
+    <p>You've pressed the button {{pressCounter}} times!</p>
+  {{/if}}
+
+
+  {{> posts }}
+</template>
+
+<template name="posts">
+  {{#if postsList}}
+    {{#each postsList}}
+      <article>
+        <h1>{{title}}</h1>
+        <strong>{{slug}}</strong>
+
+        {{#if content}}
+        <div class="post-content">
+        {{mdify content}}
+        </div>
+        {{else}}
+          <span>No content</span>
+        {{/if}}
+
+        <footer>
+          {{#if publishDate}}
+          <span>posted: {{formatDateTime publishDate}} ~ {{timeago publishDate}}</span>
+          {{/if}}
+          {{#if editDate}}
+          <br><span>last edited: {{formatDateTime editDate}} ~ {{timeago editDate}}</span>
+          {{/if}}
+        </footer>
+
+      </article>
+    {{/each}}
+  {{else}}
+    <div class="error">Sorry, No posts</div>
+  {{/if}}
+</template>
+
+<template name="post">
+
+
+</template>
+
