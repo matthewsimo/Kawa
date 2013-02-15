@@ -1,6 +1,6 @@
 # 川 - Kawa
 
-### Meteor Powered Blog
+### Meteor + Dropbox Powered Blog
 
 - Write posts in markdown
 - Write posts in your dropbox
